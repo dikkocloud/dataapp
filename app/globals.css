@@ -1,0 +1,57 @@
+:root {
+  --ink: #0e1f2f;
+  --muted: #5a6b7a;
+  --paper: #f6f8f9;
+  --card: #ffffff;
+  --line: #d5dee4;
+  --signal: #0b7a75;
+  --danger: #b3261e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); }
+.page { max-width: 480px; margin: 0 auto; padding: 28px 18px 120px; }
+h1 { font-size: 2rem; margin: 0 0 6px; letter-spacing: -0.02em; }
+.muted { color: var(--muted); margin: 0 0 22px; line-height: 1.5; }
+
+.networks { display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto; }
+.network {
+  flex: 1 0 auto; padding: 12px 18px; border-radius: 999px; font: inherit; font-weight: 600;
+  border: 1.5px solid var(--line); background: var(--card); color: var(--ink);
+}
+.network[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+.plans { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+.plan {
+  display: flex; flex-direction: column; gap: 6px; text-align: left; padding: 14px;
+  border-radius: 14px; font: inherit; color: var(--ink);
+  border: 1.5px solid var(--line); background: var(--card);
+}
+.plan-name { font-weight: 700; font-size: 1.05rem; }
+.plan-price { color: var(--muted); }
+.plan[aria-pressed="true"] { border-color: var(--signal); box-shadow: inset 0 0 0 1.5px var(--signal); }
+
+.field { display: block; font-weight: 600; margin-bottom: 16px; }
+.field input {
+  display: block; width: 100%; margin-top: 6px; padding: 14px; font: inherit; font-size: 1rem;
+  border: 1.5px solid var(--line); border-radius: 12px; background: var(--card);
+}
+.field input:focus-visible, button:focus-visible, .link:focus-visible {
+  outline: 3px solid var(--signal); outline-offset: 2px;
+}
+.error { color: var(--danger); font-weight: 600; }
+
+.paybar {
+  position: fixed; left: 0; right: 0; bottom: 0; padding: 14px 18px calc(14px + env(safe-area-inset-bottom));
+  background: var(--paper); border-top: 1px solid var(--line);
+}
+.paybar button {
+  display: block; width: 100%; max-width: 480px; margin: 0 auto; padding: 16px; border: 0;
+  border-radius: 14px; background: var(--signal); color: #fff; font: inherit; font-weight: 700; font-size: 1.05rem;
+}
+.paybar button:disabled { background: #9db8b6; }
+
+.receipt { margin: 22px 0; padding: 0; }
+.receipt div { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.receipt dt { color: var(--muted); }
+.receipt dd { margin: 0; font-weight: 600; text-align: right; word-break: break-all; }
+.link { color: var(--signal); font-weight: 700; }
